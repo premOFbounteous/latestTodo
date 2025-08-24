@@ -1,0 +1,269 @@
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body, html, #root {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make main content area flex-grow */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === Theme Modes === */
+.light {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.dark {
+  background: #111827;
+  color: #f9fafb;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #e11d48; /* nice red accent */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar .left {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fde047; /* yellow hover */
+}
+
+.badge {
+  background: white;
+  color: #e11d48;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 4px;
+}
+
+.theme-btn {
+  background: white;
+  color: #e11d48;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.theme-btn:hover {
+  background: #fce7f3;
+}
+
+/* === Todo Section === */
+.todo {
+  flex: 1;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.dark .todo {
+  background: #1f2937;
+}
+
+.todo h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+.dark .todo-form input {
+  background: #374151;
+  border: 1px solid #4b5563;
+  color: white;
+}
+
+.todo-form button {
+  background: #e11d48;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.todo-form button:hover {
+  background: #be123c;
+}
+
+/* === Todo List === */
+.todo-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+}
+
+.todo-item.done .msg {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete {
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.delete:hover {
+  background: #dc2626;
+}
+
+/* === Tasks Summary Page === */
+.tasks-summary {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stat {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.dark .stat {
+  background: #1f2937;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* === Tags Page === */
+.tags-page {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.filters button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: #e11d48;
+  color: white;
+}
+
+/* === Footer === */
+.footer {
+  background: #b91c1c;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto; /* This pushes footer to bottom */
+  position: static; /* Change from sticky to static */
+  width: 100%;
+}
+
+.footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer .social-links a {
+  color: white;
+  font-size: 1.6rem;
+  transition: color 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: #fde047;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
